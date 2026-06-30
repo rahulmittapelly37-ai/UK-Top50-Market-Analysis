@@ -45,7 +45,7 @@ else:
 st.dataframe(dates_with_non_50_entries)
 data['artist'] = data['artist'].str.strip().str.lower()
 
-display(data.head())
+st.dataframe(data.head())
 
 data['artist'] = data['artist'].str.split('&').explode('artist')
 data['artist'] = data['artist'].str.strip()
