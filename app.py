@@ -31,7 +31,6 @@ st.write(data.info())
 data['date'] = pd.to_datetime(data['date'], format='%d-%m-%Y')
 
 daily_counts = data['date'].value_counts().sort_index()
-display(daily_counts.head())
 st.write(daily_counts.head())
 
 """Let's check for dates that do not have exactly 50 entries."""
