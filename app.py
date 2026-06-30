@@ -41,7 +41,7 @@ if dates_with_non_50_entries.empty:
     print("All dates have exactly 50 entries.")
 else:
     print("Dates with an entry count not equal to 50:")
-    display(dates_with_non_50_entries)
+   st.dataframe(dates_with_non_50_entries)
 
 data['artist'] = data['artist'].str.strip().str.lower()
 
