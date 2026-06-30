@@ -12,7 +12,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("/content/Atlantic_United_Kingdom.csv")
+data = pd.read_csv("Atlantic_United_Kingdom.csv")
 
 data.head()
 
