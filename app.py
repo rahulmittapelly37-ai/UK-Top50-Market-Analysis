@@ -50,7 +50,7 @@ st.dataframe(data.head())
 data['artist'] = data['artist'].str.split('&').explode('artist')
 data['artist'] = data['artist'].str.strip()
 
-display(data.head())
+st.dataframe(data.head())
 
 data['duration_minutes'] = (data['duration_ms'] / 60000).astype(int)
 data['duration_seconds'] = ((data['duration_ms'] % 60000) / 1000).astype(int)
