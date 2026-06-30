@@ -70,14 +70,14 @@ st.dataframe(data[['duration_ms', 'duration_minutes', 'duration_seconds']].head(
 
 unique_artists_per_day = data.groupby('date')['artist'].nunique().reset_index()
 unique_artists_per_day.rename(columns={'artist': 'unique_artist_count'}, inplace=True)
-display(unique_artists_per_day.head())
+st.dataframe(unique_artists_per_day.head())
 
 """This table shows the number of unique artists featured on the charts for each day."""
 
 artist_appearances = data['artist'].value_counts()
 
 top_5_artists = artist_appearances.head(5)
-display(top_5_artists)
+st.dataframe(top_5_artists)
 
 total_appearances = artist_appearances.sum()
 top_5_appearances = top_5_artists.sum()
@@ -90,7 +90,7 @@ print(f"Artist Concentration Index (ACI) based on Top 5 artists: {aci:.2f}%")
 ### Leaderboard of Most Frequent Charting Artists
 """
 
-display(artist_appearances)
+st.dataframe(artist_appearances)
 
 """### Domestic vs. International Artist Comparison
 
@@ -101,7 +101,7 @@ To compare domestic and international artists, we first need to categorize them.
 domestic_artists_list = ['adele', 'ed sheeran', 'coldplay', 'dua lipa', 'harry styles', 'stormzy', 'elton john', 'queen', 'the beatles', 'sam smith', 'calvin harris', 'ellie goulding', 'lewis capaldi', 'dave', 'lil peep', 'drake'] # Added a few more for illustration
 
 data['artist_origin'] = data['artist'].apply(lambda x: 'Domestic' if x in domestic_artists_list else 'International')
-display(data[['artist', 'artist_origin']].head())
+st.dataframe(data[['artist', 'artist_origin']].head())
 
 """Collaboration Structure Analysis
 
@@ -125,7 +125,7 @@ collaboration_status['collaboration_type'] = collaboration_status['artist'].appl
 # Merge to add the collaboration_type to the main DataFrame
 
 data = pd.merge(data, collaboration_status[['date', 'song', 'collaboration_type']], on=['date', 'song'], how='left')
-display(data[['date', 'song', 'artist', 'collaboration_type']].head())
+st.dataframe(data[['date', 'song', 'artist', 'collaboration_type']].head())
 
 collaboration_counts = collaboration_status['collaboration_type'].value_counts()
 total_unique_songs = collaboration_counts.sum()
