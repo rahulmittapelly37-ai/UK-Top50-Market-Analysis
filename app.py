@@ -243,7 +243,7 @@ explicit_distribution_by_rank = pd.DataFrame({
 explicit_distribution_by_rank = explicit_distribution_by_rank.fillna(0)
 explicit_distribution_by_rank.columns = ['Clean', 'Explicit'] # Rename columns for clarity
 
-display(explicit_distribution_by_rank)
+st.dataframe(explicit_distribution_by_rank)
 
 import matplotlib.pyplot as plt
 
@@ -280,7 +280,7 @@ We'll analyze the distribution of tracks by their `album_type` to understand the
 
 album_type_counts = data['album_type'].value_counts()
 
-display(album_type_counts)
+st.dataframe(album_type_counts)
 
 # Calculate the ratio of singles to album tracks
 
@@ -303,7 +303,7 @@ We'll examine how the number of tracks in an album (or single/compilation) corre
 playlist_inclusion_by_album_size = data['total_tracks'].value_counts().sort_index()
 
 print("Frequency of Tracks in Chart by Album Size:")
-display(playlist_inclusion_by_album_size.head(10))
+st.dataframe(playlist_inclusion_by_album_size.head(10))
 
 # Visualize the frequency
 
@@ -322,7 +322,7 @@ plt.show()
 avg_popularity_by_album_size = data.groupby('total_tracks')['popularity'].mean().sort_index()
 
 print("\nAverage Popularity of Tracks in Chart by Album Size:")
-display(avg_popularity_by_album_size.head(10))
+st.dataframe(avg_popularity_by_album_size.head(10))
 
 # Visualize the average popularity
 
@@ -343,7 +343,7 @@ Based on the `album_type_counts`, we can directly assess the dominance of single
 
 # Use the pre-computed album_type_counts
 
-display(album_type_counts)
+st.dataframe(album_type_counts)
 
 # Visualize the distribution of album types
 
@@ -409,7 +409,7 @@ def categorize_duration(seconds):
 
 data['duration_bucket'] = (data['duration_minutes'] * 60 + data['duration_seconds']).apply(categorize_duration)
 
-display(data[['song', 'duration_minutes', 'duration_seconds', 'duration_bucket']].head())
+st.dataframe(data[['song', 'duration_minutes', 'duration_seconds', 'duration_bucket']].head())
 
 """### Duration vs. Popularity Score
 
@@ -421,7 +421,7 @@ Let's examine if there's a correlation between track duration and its average po
 avg_popularity_by_duration = data.groupby('duration_bucket')['popularity'].mean().reindex(['Short', 'Medium', 'Long'])
 
 print("Average Popularity by Duration Bucket:")
-display(avg_popularity_by_duration)
+st.dataframe(avg_popularity_by_duration)
 
 # Visualize the average popularity by duration bucket
 
@@ -444,7 +444,7 @@ To understand listener preferences based on track duration, let's look at the fr
 duration_bucket_counts = data['duration_bucket'].value_counts().reindex(['Short', 'Medium', 'Long'])
 
 print("Distribution of Track Duration Buckets:")
-display(duration_bucket_counts)
+st.dataframe(duration_bucket_counts)
 
 # Visualize the distribution
 
