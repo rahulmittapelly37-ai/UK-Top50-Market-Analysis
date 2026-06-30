@@ -14,15 +14,10 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv("Atlantic_United_Kingdom.csv")
 
-data.head()
-
-data.shape
-
-data.index
-
-data.columns
-
-data.info()
+st.dataframe(data.head())
+st.write(data.shape)
+st.write(data.columns)
+st.write(data.info())
 
 """Data Validation and standardization
 
