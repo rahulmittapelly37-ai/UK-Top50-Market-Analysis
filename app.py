@@ -55,7 +55,7 @@ st.dataframe(data.head())
 data['duration_minutes'] = (data['duration_ms'] / 60000).astype(int)
 data['duration_seconds'] = ((data['duration_ms'] % 60000) / 1000).astype(int)
 
-display(data[['duration_ms', 'duration_minutes', 'duration_seconds']].head())
+st.dataframe(data[['duration_ms', 'duration_minutes', 'duration_seconds']].head())
 
 """Artist Dominance & Diversity Analysis
 
