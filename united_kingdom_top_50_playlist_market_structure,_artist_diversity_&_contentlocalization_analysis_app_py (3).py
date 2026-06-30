@@ -503,4 +503,3 @@ print(f"Total unique songs: {unique_songs}")
 print(f"Total chart entries: {total_entries}")
 print(f"Content Variety Index (Unique Songs / Total Entries): {content_variety_index:.4f}")
 
-!pip install streamlit
